@@ -15,11 +15,12 @@ VOLUME /var/www/media
 # volume can be used for live-reload during development
 RUN mkdir -p /usr/django/app
 VOLUME /usr/django/app
- 
+
 # set default port
 ENV PORT=8000
 
 ENV DJANGO_VERSION=1.8.19
+RUN pip install mysqlclient
 RUN pip install django==$DJANGO_VERSION
 
 WORKDIR /usr/django/app
